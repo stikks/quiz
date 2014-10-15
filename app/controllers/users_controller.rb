@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   layout "admin"
 
+  before_action :confirm_logged_in
   def index
     @users = User.sorted
   end
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
   def create
     # Instantiate a new object using form parameters
     @user = User.new(user_params)
-    @user.password_digest = BCrypt::Password.create(params[:password]).to_s
+    #@user.password_digest = BCrypt::Password.create(params[:password]).to_s
     # Save the object
     if @user.save
       # If save succeeds, redirect to the index action
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     # Update the object
     if @user.update_attributes(subject_params)
-      @user.password_digest = BCrypt::Password.create(params[:password]).to_s
+      #@user.password_digest = BCrypt::Password.create(params[:password]).to_s
       # If update succeeds, redirect to the index action
       flash[:notice] = "User '#{User.name}' updated successfully"
       redirect_to(:action => 'show', :id => @user.id)
