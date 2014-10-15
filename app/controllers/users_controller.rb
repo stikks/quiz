@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout false
+  layout "admin"
 
   def index
     @users = User.sorted
