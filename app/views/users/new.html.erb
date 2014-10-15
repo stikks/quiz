@@ -6,20 +6,7 @@
 
   <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
 
-    <table summary="Subject form fields">
-      <tr>
-        <th>Name</th>
-        <td><%= f.text_field(:name) %></td>
-      </tr>
-      <tr>
-        <th>Password</th>
-        <td><%= f.text_field(:password) %></td>
-      </tr>
-      <tr>
-        <th>Vemail</th>
-        <td><%= f.text_field(:email) %></td>
-      </tr>
-    </table>
+    <%= render(:partial => "form", :locals => {:f => f}) %>
 
     <div class="form-buttons">
       <%= submit_tag("Create Subject") %>
