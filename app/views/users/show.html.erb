@@ -1,0 +1,41 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="users show">
+  <h2>Show User</h2>
+
+  <table summary="Subject detail view">
+    <tr>
+      <th>ID</th>
+      <td><%= @users.id %></td>
+    </tr>
+    <tr>
+      <th>Username</th>
+      <td><%= @users.name %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @users.email  %></td>
+    </tr>
+    <tr>
+    <tr>
+      <th>Password</th>
+      <td><%= @users.password  %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @users.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @users.updated_at %></td>
+    </tr>
+  </table>
+
+</div>
