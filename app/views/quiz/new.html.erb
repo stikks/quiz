@@ -1,0 +1,18 @@
+<% @page_title = "Create Quiz" %>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="Quizzes new">
+  <h2>Create Quiz</h2>
+
+  <%= form_for(:user, :url => {:action => 'create'}, :html =>{:role => "form"}) do |f| %>
+  	<fieldset>
+
+	    <%= render(:partial => "form", :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= submit_tag("Create Quiz") %>
+	      <%= link_to("Add More Questions", {:action => 'new_c'}, :class => 'action new') %>
+	    </div>
+	</fieldset>
+  <% end %>
+</div>

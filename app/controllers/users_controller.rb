@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new(:name => "Default")
+    @user = User.new
   end
 
   def create
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     # Find an existing object using form parameters
     @user = User.find(params[:id])
     # Update the object
-    if @user.update_attributes(subject_params)
+    if @user.update_attributes(user_params)
       #@user.password_digest = BCrypt::Password.create(params[:password]).to_s
       # If update succeeds, redirect to the index action
       flash[:notice] = "User '#{User.name}' updated successfully"
@@ -61,6 +61,15 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :password_digest, :email, :id, :username)
+    params.require(:user).permit(:name, :password, :email, :id, :username)
   end
+
+  def logout
+    # mark user as logged out
+    session[:user_id] = nil
+    session[:username] = nil
+    flash[:notice] = "Logged out"
+    redirect_to(:controller => 'welcome', :action => "login")
+  end 
+
 end

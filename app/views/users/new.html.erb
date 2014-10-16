@@ -4,13 +4,14 @@
 <div class="Users new">
   <h2>Create User</h2>
 
-  <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+  <%= form_for(@user, :url => {:action => 'create'}, :html =>{:role => "form"}) do |f| %>
+  	<fieldset>
 
-    <%= render(:partial => "form", :locals => {:f => f}) %>
+	    <%= render(:partial => "form", :locals => {:f => f}) %>
 
-    <div class="form-buttons">
-      <%= submit_tag("Create Subject") %>
-    </div>
-
+	    <div class="form-buttons">
+	      <%= submit_tag("Create User") %>
+	    </div>
+	</fieldset>
   <% end %>
 </div>

@@ -1,0 +1,31 @@
+<% @page_title = "Quiz Menu" %>
+
+<div class="menu">
+  <h2>Welcome to Quiz</h2>
+
+  <p><b></b></p>
+  <p align="center">Please select a quiz to continue! or Create a quiz if you would like to</p>
+
+  <table class="listing" summary="Quiz list">
+    <tr class="header">
+      <th>id</th>
+      <th>Name</th>
+      <th>No of Questions</th>
+      <th>Actions</th>
+    </tr>
+    <% @quiz.each do |quiz| %>
+    <tr>
+      <td><%= quiz.id %></td>
+      <td><%= quiz.name %></td>
+      <td><%= quiz.questionn %></td>
+      
+     <td class="actions">
+        <%= link_to("Take Quiz", {:action => 'show', :id => user.id}, :class => 'action show') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+  
+    <<%= link_to("Click to Create quiz", {:action => 'show'}, :class => 'action show') %>
+</div>

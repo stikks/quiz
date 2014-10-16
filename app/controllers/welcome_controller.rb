@@ -1,21 +1,18 @@
-class AccessController < ApplicationController
+class WelcomeController < ApplicationController
   layout 'admin'
-
-  before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
 
   def index
   	#display text and links
   end
 
   def login
-  	# login form
+  	@user = User.new
   end
 
   def attempt_login
   	if params[:username].present? && params[:password].present?
-      found_user = AdminUser.where(:username => params[:username]).first
+      found_user = User.where(:username => params[:username]).first
       if found_user
-        found_user = User.where(:username => params[:username]).first
         authorized_user = found_user.authenticate( params[:password]) #User.authenticate(params[:username], params[:password])
       end
     end
@@ -38,5 +35,5 @@ class AccessController < ApplicationController
     session[:username] = nil
     flash[:notice] = "Logged out"
     redirect_to(:action => "login")
-  end 
+  end
 end
