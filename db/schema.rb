@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016064105) do
+ActiveRecord::Schema.define(version: 20141016115816) do
 
   create_table "admin_users", force: true do |t|
     t.string   "username"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "choices", force: true do |t|
+    t.string   "question"
+    t.string   "choice1"
+    t.string   "choice2"
+    t.string   "choice3"
+    t.string   "choicec"
+    t.string   "quizid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
