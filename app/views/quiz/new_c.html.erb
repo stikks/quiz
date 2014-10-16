@@ -1,4 +1,4 @@
-<% @page_title = "Enter Qu" %>
+<% @page_title = "Create Quiz" %>
 
 
 <div class="login" align="center">
@@ -9,28 +9,28 @@
     <div class="form-group">
       <tr>
         <td>Question:</td>
-        <td><%= text_area_tag(:question,  nil, :placeholder => "", :class => "form-control", :disabled => "disabled") %></td>
+        <td><%= text_area_tag(:question,  nil, :placeholder => "Enter Question here", :class => "form-control") %></td>
       </tr>
     </div>
     <tr>
       <td>Option 1:</td>
-      <td><%= text_area_tag(:choice1, nil, :placeholder => "", :class => "form-control", :disabled => "disabled") %></td>
+      <td><%= text_area_tag(:choice1, nil, :placeholder => "Enter option 1", :class => "form-control") %></td>
     </tr>
     <div class="form-group">
       <tr>
         <td>Option 2:</td>
-        <td><%= text_area_tag(:choice2,  nil, :placeholder => "", :class => "form-control", :disabled => "disabled", ) %></td>
+        <td><%= text_area_tag(:choice2,  nil, :placeholder => "Enter option 2", :class => "form-control") %></td>
       </tr>
     </div>
     <div class="form-group">
       <tr>
         <td>Option 3:</td>
-        <td><%= text_area_tag(:choice3,  nil, :placeholder => "", :class => "form-control", :disabled => "disabled") %></td>
+        <td><%= text_area_tag(:choice3,  nil, :placeholder => "Enter option 3", :class => "form-control") %></td>
       </tr>
     </div>
     <div class="form-group">
       <tr>
-        <td>Whats your answer:</td>
+        <td>Corect Option:</td>
         <td><%= text_field_tag(:choicec,  nil, :placeholder => "Enter 1, 2, or 3 for the correct answer", :class => "form-control") %></td>
       </tr>
     </div>

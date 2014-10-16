@@ -1,18 +1,33 @@
 <% @page_title = "Create Quiz" %>
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
-<div class="Quizzes new">
-  <h2>Create Quiz</h2>
-
-  <%= form_for(:user, :url => {:action => 'create'}, :html =>{:role => "form"}) do |f| %>
-  	<fieldset>
-
-	    <%= render(:partial => "form", :locals => {:f => f}) %>
-
-	    <div class="form-buttons">
-	      <%= submit_tag("Create Quiz") %>
-	      <%= link_to("Add More Questions", {:action => 'new_c'}, :class => 'action new') %>
-	    </div>
-	</fieldset>
+<div class="login" align="center">
+	<p><b>Welcome to create quiz!<b/></p>
+	<p><b>Please fill the form below to continue!<b/></p>
+  <%= form_tag(:action => 'create') do %>
+  <table>
+    <div class="form-group">
+      <tr>
+        <td>Quize name:</td>
+        <td><%= text_field_tag(:name,  nil, :placeholder => "Quiz name", :class => "form-control") %></td>
+      </tr>
+    </div>
+    <tr>
+      <td>About Quiz:</td>
+      <td><%= text_field_tag(:about, nil, :placeholder => "About this Quiz", :class => "form-control") %></td>
+    </tr>
+    
+    <tr>
+        <div class="form-groups">
+          
+          <td colspan="2">
+          <%= button_tag(type: 'submit', class: "btn btn-success btn-block btn-") do %>
+           <i class="icon-ok icon-white"></i> Continue>>
+          <% end %>
+          </td>
+        </div>
+        </tr>
+  </table>
   <% end %>
 </div>
+

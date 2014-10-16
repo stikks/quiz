@@ -1,42 +1,42 @@
 class QuizController < ApplicationController
+  layout 'admin'
 
-  layout "admin"
-
-   before_action :confirm_logged_in, :except => [:index, :show]
   def index
     @quizzes = Quiz.sorted
   end
-
-  def show
-    @quizzes = Quiz.find(params[:id])
-  end
-
-  def new
-    @quiz = Quiz.new
-  end
-
   def new_c
+    @quizzes = Quiz.sorted
   end
 
-  def edit
+  def create
+      @quiz = Quiz.new
+      @quiz.name = params[:name]
+      @quiz.about = params[:about]
+      @quiz.userid = session[:user_id]
+      if @quiz.save
+        session[:quiz_id] = @quiz.id
+        flash[:notice] = "Quiz creation is a success! Continue>>"
+        redirect_to(:action => 'new_c')
+      else
+        # If save fails, redisplay the form so user can fix problems
+        render('new')
+      end
   end
-
-  def delete
-  end
-
-
-  def logout
-    # mark user as logged out
-    session[:user_id] = nil
-    session[:username] = nil
-    flash[:notice] = "Logged out"
-    redirect_to(:controller => 'welcome', :action => "login")
-  end 
-  def login
-    # mark user as logged out
-    # session[:user_id] = nil
-    # session[:username] = nil
-    # flash[:notice] = "Logged out"
-    redirect_to(:controller => 'welcome', :action => "login")
+   def create_c
+      @choice = Choice.new
+      @choice.question = params[:question]
+      @choice.choice1 = params[:choice1]
+      @choice.choice2 = params[:choice2]
+      @choice.choice3 = params[:choice3]
+      @choice.choicec = params[:choicec]
+      @choice.quizid = session[:quiz_id]
+      if @choice.save
+        
+        flash[:notice] = "Question creation is a success! Continue>>"
+        redirect_to(:action => 'new_c')
+      else
+        # If save fails, redisplay the form so user can fix problems
+        render('new')
+      end
   end
 end

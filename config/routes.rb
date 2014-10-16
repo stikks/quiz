@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'choice/index'
-
-  get 'choice/show'
-
-  get 'choice/edit'
-
-  get 'choice/delete'
-
   get 'login', :to => "welcome#index" 
   get 'admin', :to => "access#index" 
   match ':controller(/:action(/:id))', :via => [:get, :post]

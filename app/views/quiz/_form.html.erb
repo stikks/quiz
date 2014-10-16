@@ -1,36 +1,12 @@
-
-
-<table class="listing" summary="Question form fields">
-    <tr>
-      <td>&nbsp;</td>
-      <td colspan="2">
-        Quiz Name: <%= f.text_field(:name, :placeholder => "Quiz Name" , :class => "form-control") %>
-      </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td colspan="2">
-        About Quiz: <%= f.text_field(:about, :placeholder => "About Quiz" , :class => "form-control") %>
-      </td>
-    </tr>
-
-    <tr><td>&nbsp;</td></tr>
-    <tr class="header">
-      <th>No:</th>
-      <th>Question</th>
-      <th>Choice 1</th>
-      <th>Choice 2</th>
-      <th>Choice 3</th>
-      <th>Correct Choice</th>
-    </tr>
-    
-    <tr>
-      <td>1.</td>
-      <td><%= f.text_area(:question, :placeholder => "Question" , :class => "form-control") %></td>
-      <td><%= f.text_area(:choice1, :placeholder => "Choice 1" , :class => "form-control") %></td>
-      <td><%= f.text_area(:choice2, :placeholder => "Choice 2" , :class => "form-control") %></td>
-      <td><%= f.text_area(:choice3, :placeholder => "Choice 3" , :class => "form-control") %></td>
-      <td><%= f.text_area(:choicec, :placeholder => "correct" , :class => "form-control") %></td>
-      
-    </tr>
-  </table>
+<table summary="user form fields">
+  <div class="form-group">
+  <tr>
+    <td colspan = '2'><%= f.text_field(:name, :placeholder => "Name" , :class => "form-control") %></td>
+  </tr>
+  </div>
+  <div class="form-group">
+  <tr>
+    <td colspan = '2'><%= f.text_field(:about, :placeholder => "about quiz" , :class => "form-control") %></td>
+  </tr>
+  </div>
+</table> 
