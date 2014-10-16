@@ -10,22 +10,23 @@
     <tr class="header">
       <th>id</th>
       <th>Name</th>
-      <th>No of Questions</th>
+      <th>About</th>
+      <th>Created by</th>
       <th>Actions</th>
     </tr>
-    <% @quiz.each do |quiz| %>
+    <% @quizzes.each do |quiz| %>
     <tr>
       <td><%= quiz.id %></td>
       <td><%= quiz.name %></td>
-      <td><%= quiz.questionn %></td>
+      <td><%= quiz.about %></td>
+      <td><%= quiz.userid %></td>
       
      <td class="actions">
-        <%= link_to("Take Quiz", {:action => 'show', :id => user.id}, :class => 'action show') %>
+        <%= link_to("Take Quiz", {:action => 'show', :id =>quiz.id}, :class => 'action show') %>
       </td>
     </tr>
     <% end %>
   </table>
-
   
-    <<%= link_to("Click to Create quiz", {:action => 'show'}, :class => 'action show') %>
+    <%= link_to("Click to Create quiz", {:action => 'show'}, :class => 'action show') %>
 </div>

@@ -21,13 +21,10 @@ ActiveRecord::Schema.define(version: 20141016064105) do
 
   create_table "quizzes", force: true do |t|
     t.string   "name"
-    t.string   "choice1"
-    t.string   "choice2"
-    t.string   "choice3"
-    t.string   "choicec"
     t.string   "userid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "about"
   end
 
   create_table "users", force: true do |t|

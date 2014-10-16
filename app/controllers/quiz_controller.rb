@@ -4,12 +4,15 @@ class QuizController < ApplicationController
 
    before_action :confirm_logged_in, :except => [:index, :show]
   def index
+    @quizzes = Quiz.sorted
   end
 
   def show
+    @quizzes = Quiz.find(params[:id])
   end
 
   def new
+    @quiz = Quiz.new
   end
 
   def new_c
