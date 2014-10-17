@@ -8,6 +8,9 @@ class WelcomeController < ApplicationController
   def login
   	@user = User.new
   end
+  def sign_up
+    redirect_to(:controller => 'users',:action => 'new')
+  end
 
   def attempt_login
   	if params[:username].present? && params[:password].present?

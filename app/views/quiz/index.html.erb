@@ -9,21 +9,21 @@
 
   <table class="listing" summary="Quiz list" align='center'>
     <tr class="header">
-      <th>id</th>
-      <th>Name</th>
-      <th>About</th>
-      <th>Created by</th>
-      <th>Actions</th>
+      <th>Quiz id</th>
+      <th>Quiz Name</th>
+      <th>About Quiz</th>
+      <th>Quiz Created by</th>
+      <th>Click to Take quiz</th>
     </tr>
     <% @quizzes.each do |quiz| %>
     <tr>
       <td><%= quiz.id %></td>
       <td><%= quiz.name %></td>
       <td><%= quiz.about %></td>
-      <td><%= quiz.userid %></td>
+      <td><%= User.find(quiz.userid.to_i).name %></td>
       
      <td class="actions">
-        <%= link_to("Take Quiz", {:action => 'show', :id =>quiz.id}, :class => 'action show') %>
+        <%= link_to("Take Quiz", { :controller => 'quiz', :action => 'show', :id =>quiz.id}, :class => 'action show') %>
       </td>
     </tr>
     <% end %>

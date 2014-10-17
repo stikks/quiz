@@ -1,37 +1,43 @@
-<% @page_title = "Enter Qu" %>
+<% @page_title = "Take Quiz" %>
+
 
 
 <div class="login" align="center">
-	<p><b>Enter your questions here!<b/></p>
-	<p><b>When you are done click on create quiz!<b/></p>
-  <%= form_tag(:action => 'create_c') do %>
+	
+
+
+  <%= form_tag(:action => 'submit_a') do %>
   <table width="100%">
+  	<tr>
+		<td>&nbsp;</td>
+		<td><%= @quiz.name %>: Quiz  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Question no: <%= session[:question_n] +1  %></td>
+	</tr>
     <div class="form-group">
       <tr>
         <td>Question:</td>
-        <td><%= text_area_tag(:question,  nil, :placeholder => "", :class => "form-control", :disabled => "disabled") %></td>
+        <td><%= text_area_tag(:question,  @question.question, :placeholder => "", :class => "form-control", :disabled => "disabled") %></td>
       </tr>
     </div>
     <tr>
       <td>Option 1:</td>
-      <td><%= text_area_tag(:choice1, nil, :placeholder => "", :class => "form-control", :disabled => "disabled") %></td>
+      <td><%= text_area_tag(:choice1,  @question.choice1, :placeholder => "", :class => "form-control", :disabled => "disabled") %></td>
     </tr>
     <div class="form-group">
       <tr>
         <td>Option 2:</td>
-        <td><%= text_area_tag(:choice2,  nil, :placeholder => "", :class => "form-control", :disabled => "disabled", ) %></td>
+        <td><%= text_area_tag(:choice2,  @question.choice2, :placeholder => "", :class => "form-control", :disabled => "disabled", ) %></td>
       </tr>
     </div>
     <div class="form-group">
       <tr>
         <td>Option 3:</td>
-        <td><%= text_area_tag(:choice3,  nil, :placeholder => "", :class => "form-control", :disabled => "disabled") %></td>
+        <td><%= text_area_tag(:choice3,  @question.choice3, :placeholder => "", :class => "form-control", :disabled => "disabled") %></td>
       </tr>
     </div>
     <div class="form-group">
       <tr>
         <td>Whats your answer:</td>
-        <td><%= text_field_tag(:choicec,  nil, :placeholder => "Enter 1, 2, or 3 for the correct answer", :class => "form-control") %></td>
+        <td><%= text_field_tag(:choice,  nil, :placeholder => "Enter 1, 2, or 3 for the correct answer", :class => "form-control") %></td>
       </tr>
     </div>
     
@@ -39,12 +45,12 @@
         <div class="form-groups">
           <td>
           	<b>
-          <%= link_to("Create Quiz >>", {:action => 'index'}, :class => 'back-link') %>
+          &nbsp;
       </b>
       		</td>
           <td colspan="1">
           <%= button_tag(type: 'submit', class: "btn btn-success btn-block btn-") do %>
-           <i class="icon-ok icon-white"></i> Submit Question
+           <i class="icon-ok icon-white"></i> Submit Answer
           <% end %>
           </td>
 

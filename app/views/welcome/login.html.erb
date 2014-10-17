@@ -16,7 +16,9 @@
     
     <tr>
         <div class="form-groups">
-          
+          <td>
+            <%= link_to("Sign Up", :action => "sign_up") %>
+          </td>
           <td colspan="2">
           <%= button_tag(type: 'submit', class: "btn btn-success btn-block btn-") do %>
            <i class="icon-ok icon-white"></i> login
@@ -24,6 +26,7 @@
           </td>
         </div>
         </tr>
+        
   </table>
   <% end %>
 </div>

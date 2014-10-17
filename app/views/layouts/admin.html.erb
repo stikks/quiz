@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FraDem QuizMe | <%= @page_title || "1" %></title>
+    <title>QuizMe | <%= @page_title || "1" %></title>
     <%= stylesheet_link_tag('application', :media => 'all') %>
   </head>
   <body>
     <div id="header">
-      <h1>FraDem QuizMe</h1>
+      <h1>QuizMe</h1>
     </div>
     <div id="main">
       <% if !flash[:notice].blank? %>
@@ -18,10 +18,10 @@
         <div id="user_logged">
           <% if !session[:username].blank? %>
             <div class="user_logged">
-              <b>Logged as ::: <%= session[:username] %> <%= link_to("Logout", :action => 'logout') %></b>
+              <b>Logged as ::: <%= session[:username] %> <%= link_to("Logout", :controller => 'welcome', :action => 'logout') %></b>
             </div>
             <% else %>
-              <b> Welcome Guest ::: <%= link_to("Login", {:action => 'login'}, :controller => 'welcome') %> </b>
+              <b> Welcome Guest ::: <%= link_to("Login", :controller => 'welcome', :action => 'login') %> </b>
           <% end %>
         </div>
 

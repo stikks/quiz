@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   layout "admin"
 
-  before_action :confirm_logged_in
+  before_action :confirm_logged_in, :except => [:new, :create]
   
   def index
     @users = User.sorted
